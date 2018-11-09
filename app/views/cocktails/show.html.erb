@@ -1,9 +1,18 @@
 <div class="container">
-<h1><%= @cocktail.name %>
-<%= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: "Delete cocktail '#{@cocktail.name}'?"} do %>
-<span><%= icon('fas', 'trash') %></span>
-<% end %>
-</h1>
+<h1><%= @cocktail.name %></h1>
+
+
+<!-- button for add/edit image -->
+<!-- <span><%#= icon('fas', 'edit') %></span> -->
+
+<%#= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: "Delete cocktail '#{@cocktail.name}'?"} do %>
+<!-- <span><%#= icon('fas', 'trash') %></span> -->
+<%# end %>
+
+</div>
+
+<div class="container">
+  <%= cl_image_tag @cocktail.photo, height: 300, crop: :fill %>
 </div>
 
 <div class="container">
@@ -14,8 +23,8 @@
     <li>
         <%= dose.description %>
         <%= dose.ingredient.name %>
-        <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %>
-        <span><%= icon('fas', 'minus') %></span>
+        <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %>-
+        <span><%#= icon('fas', 'minus') %></span>
         <% end %>
     </li>
     <% end %>

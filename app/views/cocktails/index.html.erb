@@ -1,11 +1,15 @@
-<h1>Cocktails#index</h1>
-<%= link_to new_cocktail_path do %>+ <% end %>
-
+<h1>Cocktails</h1>
+<%= link_to new_cocktail_path do %>+
+<% end %>
+<div class="container">
+</div>
 <ul>
     <% @cocktails.each do |cocktail| %>
     <li>
         <%= link_to cocktail.name, cocktail_path(cocktail) %>
-
+        <div class="container">
+            <%= cl_image_tag cocktail.photo, height: 100, crop: :fill %>
+        </div>
     </li>
     <% end %>
 </ul>

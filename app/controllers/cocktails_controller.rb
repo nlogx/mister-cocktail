@@ -24,7 +24,6 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    @dose = Dose.new
     @doses = Dose.where(cocktail_id: @cocktail.id).reverse
   end
 
@@ -35,6 +34,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :photo)
   end
 end
