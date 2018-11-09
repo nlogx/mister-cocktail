@@ -16,3 +16,34 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+body {
+  text-align: center;
+}
+
+a {
+  padding: 5px;
+  text-decoration: none;
+  color: #333;
+  &:hover {
+  color: grey;
+  }
+}
+
+ul.navbar-cocktails {
+  /*background: white;*/
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 0px;
+  position: sticky;
+  top: 0;
+  a {
+  font-size: 24x;
+}
+}
+
+li {
+    list-style: none;
+}

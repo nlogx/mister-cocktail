@@ -1,3 +1,14 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cocktails {
+  margin: 20px auto;
+  width: 80%;
+  padding: 0;
+
+
+  .cocktail {
+    margin: 20px;
+  }
+}
