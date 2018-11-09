@@ -1,0 +1,14 @@
+<h1>Ingredients#index</h1>
+<%= link_to new_ingredient_path do %>+ <% end %>
+<ul>
+    <% @ingredients.each do |ingredient| %>
+    <li>
+        <%= ingredient.name %>
+
+        <%= link_to ingredient_path(ingredient), method: 'delete' do %>
+        <span><%= icon('fas', 'minus') %></span>
+        <% end %>
+
+    </li>
+    <% end %>
+</ul>

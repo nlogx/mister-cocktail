@@ -1,0 +1,8 @@
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+<%= f.input :description %>
+<%= f.association :ingredient, include_blank: false %>
+<!-- collection: Ingredient.all, include_blank: false  -->
+<%= f.button :button, type: :submit do %>
+<%= icon('fas', 'plus') %>
+<% end %>
+<% end %>
