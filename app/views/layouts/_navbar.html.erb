@@ -1,8 +1,12 @@
 <ul class="navbar-cocktails">
     <li>
         <%= link_to root_path do %>
-        Cocktails
+        <%= icon('fas', 'glass-martini') %>
         <% end %>
     </li>
-    <li>+</li>
+    <li>
+      <%= link_to new_cocktail_path do %>
+        +
+      <% end %>
+    </li>
 </ul>

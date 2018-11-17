@@ -19,16 +19,11 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    # @ingredients = Ingredient.all.reverse
-    # if Dose.where(ingredient: @ingredient).empty?
     @ingredient.destroy
     redirect_to ingredients_path
-    # else
-    #   # canot delete
-    #   raise
-    # end
   end
 
+  # show page needed only if want to display photos of ingredient
   # def show
   # end
 

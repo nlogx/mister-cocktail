@@ -1,38 +1,45 @@
-<div class="container">
-<h1><%= @cocktail.name %></h1>
+<div class="container text-center">
+  <div class="container">
+    <div class="container">
+      <%= link_to root_path do %>
+        <%= icon('fas', 'chevron-left') %>
+      <% end %>
+    </div>
+    <h2><%= @cocktail.name %></h2>
+    <%= cl_image_tag @cocktail.photo, height: 200 %>
+    <!-- button for add/edit image -->
+    <!-- <span><%#= icon('fas', 'edit') %></span> -->
+
+    <%#= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: "Delete cocktail '#{@cocktail.name}'?"} do %>
+    <!-- <span><%#= icon('fas', 'trash') %></span> -->
+    <%# end %>
+
+  </div>
+
+  <div class="container">
+
+    <%= link_to new_cocktail_dose_path(@cocktail) do %>
+      <%= icon('fas', 'plus') %>  Add dose<% end %>
+    <hr>
+
+    <div class="doses-list">
+    <ul>
+      <% @doses.each do |dose| %>
+        <li>
+          <%= dose.description.strip %>
+          of
+          <%= dose.ingredient.name %>
+
+          <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %>
+            <%= icon('fas', 'trash') %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+
+  </div>
 
 
-<!-- button for add/edit image -->
-<!-- <span><%#= icon('fas', 'edit') %></span> -->
-
-<%#= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: "Delete cocktail '#{@cocktail.name}'?"} do %>
-<!-- <span><%#= icon('fas', 'trash') %></span> -->
-<%# end %>
 
 </div>
-
-<div class="container">
-  <%= cl_image_tag @cocktail.photo, height: 200, crop: :fill %>
-</div>
-
-<div class="container">
-<%= link_to new_cocktail_dose_path(@cocktail) do %>Add dose
-<% end %>
-<ul>
-    <% @doses.each do |dose| %>
-    <li>
-        <%= dose.description %>
-        <%= dose.ingredient.name %>
-        <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %>-
-        <span><%#= icon('fas', 'minus') %></span>
-        <% end %>
-    </li>
-    <% end %>
-</ul>
-
-</div>
-
-
-<%= link_to root_path do %>
-<%= icon('fas', 'chevron-left') %>
-<% end %>

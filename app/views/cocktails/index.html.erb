@@ -1,20 +1,28 @@
-<h1>Cocktails</h1>
-<%= link_to new_cocktail_path do %>+
-<% end %>
-<div class="container">
-</div>
-
 <div class="container text-center">
-<ul class="cocktails">
-    <% @cocktails.each do |cocktail| %>
-            <div class="cocktail col-xs-12 col-sm-offset-3">
-    <li>
-        <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </li>
+  <div class="container">
+    <h1>Cocktails</h1>
+    <br>
+    <p>Find the right tail.</p>
+    <h5><strong>Let the tale last.</strong></h5>
+  </div>
 
-            <%= cl_image_tag cocktail.photo, width: 100, crop: :fill %>
-        </div>
+  <hr>
 
-    <% end %>
-</ul>
+  <div class="container">
+    <ul class="cocktails-list"> <!-- list of cocktails -->
+      <div class="row">
+        <% @cocktails.each do |cocktail| %>
+          <div class="col-xs-6 col-sm-3 col-md-2">
+            <%= link_to cocktail_path(cocktail) do %>
+            <li>
+              <h5><%= cocktail.name %></h5>
+              <%= cl_image_tag cocktail.photo, width: 100 %>
+            </li>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </ul> <!-- end of cocktails list -->
+  </div>
+
 </div>

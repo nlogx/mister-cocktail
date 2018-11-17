@@ -14,36 +14,40 @@
  *= require_self
  */
 
+// Graphical variables
+// @import "config/fonts";
+// @import "config/colors";
+
+// External libraries
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-body {
-  text-align: center;
-}
+// CSS partials
+@import "components/index";
+@import "pages/index";
+
 
 a {
   padding: 5px;
-  text-decoration: none;
   color: #333;
   &:hover {
-  color: grey;
+  color: rgba(0,0,0,0.3);
+  text-decoration: none;
   }
 }
 
-ul.navbar-cocktails {
-  /*background: white;*/
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  margin: 0px;
-  position: sticky;
-  top: 0;
-  a {
-  font-size: 24x;
-}
+img {
+  padding: 5px;
+  margin: 5px;
 }
 
 li {
-    list-style: none;
+  list-style: none;
+}
+
+hr {
+  width: 300px;
+  // border-bottom: 0.3px solid rgba(0,0,0, 0.3);
 }
