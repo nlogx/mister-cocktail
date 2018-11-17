@@ -2,6 +2,7 @@ class Cocktail < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   before_save :cap_name
 
+  belongs_to :user
   has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
 
