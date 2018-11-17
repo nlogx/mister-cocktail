@@ -10,6 +10,10 @@ class DosePolicy < ApplicationPolicy
   end
 
   def create?
-    user.cocktails.include?(record.cocktail)
+    user
+  end
+
+  def destroy?
+    user
   end
 end
