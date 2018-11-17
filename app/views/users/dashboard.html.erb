@@ -1,2 +1,29 @@
-<h1>Users#dashboard</h1>
-<p>Find me in app/views/users/dashboard.html.erb</p>
+<div class="container text-center">
+  <div class="container">
+<h1>Welcome!</h1>
+<h5>
+  <%= icon('fas', 'heart') %>
+  <%= current_user.email %></h5>
+</div>
+<h3>My tales</h3>
+<% if policy(Cocktail).create? %>
+  <%= link_to '+', new_cocktail_path %>
+<% end %>
+
+<div class="container">
+    <ul class="cocktails-list"> <!-- list of cocktails -->
+      <div class="row">
+        <% current_user.cocktails.each do |cocktail| %>
+          <div class="col-xs-6 col-sm-3 col-md-2">
+            <%= link_to cocktail_path(cocktail) do %>
+            <li>
+              <h5><%= cocktail.name %></h5>
+              <%= cl_image_tag cocktail.photo, width: 100 %>
+            </li>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </ul> <!-- end of cocktails list -->
+</div>
+</div>

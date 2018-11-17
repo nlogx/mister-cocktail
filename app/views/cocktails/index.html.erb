@@ -1,6 +1,13 @@
 <div class="container text-center">
   <div class="container">
     <h1>Cocktails</h1>
+
+    <% if user_signed_in? && current_user.admin? %>
+      <div>
+      <%= link_to '+', new_cocktail_path %>
+      </div>
+    <% end %>
+
     <br>
     <p>Find the right tail.</p>
     <h5><strong>Let the tale last.</strong></h5>

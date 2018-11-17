@@ -2,21 +2,22 @@ class CocktailsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_cocktail, only: %i[show destroy]
 
+  def index
+    @cocktails = policy_scope(Cocktail).order(created_at: :desc)
+  end
+
   def new
-    @cocktail = Cocktail.new
+    @cocktail = authorize Cocktail.new
   end
 
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+    @cocktail = authorize Cocktail.new(cocktail_params)
+    @cocktail.user_id = current_user.id
     if @cocktail.save
       redirect_to @cocktail
     else
       render :new
     end
-  end
-
-  def index
-    @cocktails = Cocktail.all.reverse
   end
 
   def destroy
@@ -25,13 +26,13 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    @doses = Dose.where(cocktail_id: @cocktail.id).reverse
+    @doses = policy_scope(Dose).where(cocktail_id: @cocktail.id)
   end
 
   private
 
   def set_cocktail
-    @cocktail = Cocktail.find(params[:id])
+    @cocktail = authorize Cocktail.find(params[:id])
   end
 
   def cocktail_params
