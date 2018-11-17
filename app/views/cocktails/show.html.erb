@@ -8,7 +8,7 @@
         <h2><%= @cocktail.name %></h2>
         <%= cl_image_tag @cocktail.photo, height: 200 %>
         <!-- button for add/edit image -->
-        <% if policy(Cocktail).destroy? %>
+        <% if current_user && policy(Cocktail).destroy? %>
         <%= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: "Delete cocktail '#{@cocktail.name}'?"} do %>
         <%= icon('fas', 'trash') %>
         <% end %>
