@@ -4,9 +4,21 @@
         <%= icon('fas', 'glass-martini') %>
         <% end %>
     </li>
-    <li>
-      <%= link_to new_cocktail_path do %>
+    <!--     <li>
+      <%#= link_to new_cocktail_path do %>
         +
-      <% end %>
+      <%# end %>
+    </li> -->
+    <li>
+        <% if user_signed_in? %>
+          <%# if current_user.admin? %>
+            <%#= link_to '+', new_cocktail_path %>
+          <%# end %>
+          <%= link_to 'My tales', users_dashboard_path %>
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path %>
+          <%= link_to 'Sign up', new_user_registration_path %>
+        <% end %>
     </li>
 </ul>

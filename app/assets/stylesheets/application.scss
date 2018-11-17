@@ -28,6 +28,12 @@
 @import "components/index";
 @import "pages/index";
 
+.notice, .alert {
+  text-align: center;
+  background: #fbc000;
+  color: #333;
+  border: none;
+}
 
 a {
   padding: 5px;
