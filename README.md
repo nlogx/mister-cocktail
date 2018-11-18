@@ -1,24 +1,5 @@
-# README
+# Tipsy Tales
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A place to share cocktail ideas.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img src="tipsytales.jpg" width="50%" />
