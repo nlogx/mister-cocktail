@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_071314) do
+ActiveRecord::Schema.define(version: 2018_11_18_132904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2018_11_18_071314) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "cocktail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cocktail_id"], name: "index_reviews_on_cocktail_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,4 +73,5 @@ ActiveRecord::Schema.define(version: 2018_11_18_071314) do
   add_foreign_key "cocktails", "users"
   add_foreign_key "doses", "cocktails"
   add_foreign_key "doses", "ingredients"
+  add_foreign_key "reviews", "cocktails"
 end

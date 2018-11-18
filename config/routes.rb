@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'cocktails#index'
   resources :cocktails, except: :index do
+    resources :reviews, only: :create
     resources :doses, only: %i[new create destroy]
   end
 

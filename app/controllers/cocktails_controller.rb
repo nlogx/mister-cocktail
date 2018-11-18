@@ -27,6 +27,7 @@ class CocktailsController < ApplicationController
 
   def show
     @doses = policy_scope(Dose).where(cocktail_id: @cocktail.id)
+    @review = Review.new
   end
 
   private

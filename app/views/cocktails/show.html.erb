@@ -24,6 +24,7 @@
         <!-- button for add/edit image -->
     </div>
 
+    <!-- Doses info container -->
     <div class="container">
         <% if user_signed_in? && (current_user.cocktails.include?(@cocktail) || current_user.admin?) %>
           <%= link_to new_cocktail_dose_path(@cocktail) do %>
@@ -47,5 +48,36 @@
                 <% end %>
             </ul>
         </div>
+        <hr>
     </div>
+    <!-- Above are all about doses -->
+
+
+
+    <div class="container">
+      <h4>
+        <%= pluralize @cocktail.reviews.size, "review" %>
+      </h4>
+
+      <div id="cocktail-reviews">
+        <% if @cocktail.reviews.blank? %>
+          <p>
+            Be the first to leave a review for <%= @cocktail.name %>!
+          </p>
+        <% else %>
+          <% @cocktail.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <!-- Only logged in users can leave comments -->
+      <% if user_signed_in? %>
+        <div id="new-review">
+          <%= render 'reviews/form', cocktail: @cocktail, review: @review %>
+        </div>
+      <% end %>
+      <!-- ### -->
+      </div>
+
 </div>
