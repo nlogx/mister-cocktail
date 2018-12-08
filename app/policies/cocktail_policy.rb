@@ -1,7 +1,7 @@
 class CocktailPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: User.where(admin: true))
     end
   end
 
