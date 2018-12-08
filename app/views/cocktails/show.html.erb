@@ -55,7 +55,7 @@
 
 
     <div class="container">
-      <h4>
+      <h4 id="reviews-count">
         <%= pluralize @cocktail.reviews.size, "review" %>
       </h4>
 
@@ -73,7 +73,7 @@
 
       <!-- Only logged in users can leave comments -->
       <% if user_signed_in? %>
-        <div id="new-review">
+        <div id="new-review" class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
           <%= render 'reviews/form', cocktail: @cocktail, review: @review %>
         </div>
       <% end %>

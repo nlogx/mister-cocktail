@@ -3,14 +3,16 @@ function refreshForm(renderForm) {
   newReview.innerHTML = renderForm;
 }
 
-function addReview(newReviewHTML) {
+function addReview(newReviewHTML, newReviewCount) {
   const reviews = document.getElementById('cocktail-reviews');
+  const reviewsCount = document.getElementById('reviews-count');
   reviews.insertAdjacentHTML('beforeend', newReviewHTML);
+  reviewsCount.innerHTML = newReviewCount;
 }
 
 <% if @review.errors.any? %>
   refreshForm('<%= j render "reviews/form", cocktail: @cocktail, review: @review %>');
 <% else %>
-  addReview('<%= j render "reviews/show", review: @review %>');
+  addReview('<%= j render "reviews/show", review: @review %>', '<%= pluralize @cocktail.reviews.size, "review" %>');
   refreshForm('<%= j render "reviews/form", cocktail: @cocktail, review: Review.new %>');
 <% end %>
