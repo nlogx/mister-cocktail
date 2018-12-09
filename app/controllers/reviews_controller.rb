@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def create
     @cocktail = authorize Cocktail.find(params[:cocktail_id])
-    @review = Review.new(review_params)
+    @review = current_user.reviews.new(review_params)
     @review.cocktail = @cocktail
     if @review.save
       respond_to do |format|
