@@ -61,7 +61,7 @@
 
       <div id="cocktail-reviews">
         <% if @cocktail.reviews.blank? %>
-          <p>
+          <p id="zero-reviews-placeholder">
             Be the first to leave a review for <%= @cocktail.name %>!
           </p>
         <% else %>

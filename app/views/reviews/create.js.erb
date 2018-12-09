@@ -6,8 +6,11 @@ function refreshForm(renderForm) {
 function addReview(newReviewHTML, newReviewCount) {
   const reviews = document.getElementById('cocktail-reviews');
   const reviewsCount = document.getElementById('reviews-count');
+  const reviewsPlaceholder = document.getElementById('zero-reviews-placeholder');
+
   reviews.insertAdjacentHTML('beforeend', newReviewHTML);
   reviewsCount.innerHTML = newReviewCount;
+  reviewsPlaceholder.innerHTML = '';
 }
 
 <% if @review.errors.any? %>
