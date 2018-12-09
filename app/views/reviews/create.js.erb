@@ -10,12 +10,16 @@ function addReview(newReviewHTML, newReviewCount) {
 
   reviews.insertAdjacentHTML('beforeend', newReviewHTML);
   reviewsCount.innerHTML = newReviewCount;
-  reviewsPlaceholder.innerHTML = '';
+  if (reviewsPlaceholder) {
+    reviewsPlaceholder.innerHTML = '';
+  }
 }
 
 <% if @review.errors.any? %>
+  console.log(@review.errors);
   refreshForm('<%= j render "reviews/form", cocktail: @cocktail, review: @review %>');
 <% else %>
   addReview('<%= j render "reviews/show", review: @review %>', '<%= pluralize @cocktail.reviews.size, "review" %>');
+  console.log('added review');
   refreshForm('<%= j render "reviews/form", cocktail: @cocktail, review: Review.new %>');
 <% end %>
