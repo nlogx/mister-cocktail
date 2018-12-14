@@ -2,4 +2,4 @@
 
 A place to share cocktail ideas.
 
-<img src="tipsytales.jpg" width="80%" />
+<img src="home.png" width="100%" />
