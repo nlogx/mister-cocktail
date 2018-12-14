@@ -1,11 +1,12 @@
-<ul class="navbar-cocktails">
-    <li>
+<div class="navbar-cocktails">
+    <div id="logo">
         <%= link_to root_path do %>
-        <%= icon('fas', 'glass-martini') %>
+        <%= image_tag 'cocktail.png' %>
+        <%#= icon('fas', 'glass-martini') %>
         <% end %>
-    </li>
+    </div>
 
-    <li>
+    <div>
         <% if user_signed_in? %>
 
           <% if current_user.admin? %>
@@ -18,5 +19,5 @@
           <%= link_to 'Login', new_user_session_path %>
           <%= link_to 'Sign up', new_user_registration_path %>
         <% end %>
-    </li>
-</ul>
+    </div>
+</div>
