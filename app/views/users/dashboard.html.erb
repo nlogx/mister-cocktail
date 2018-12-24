@@ -1,29 +1,46 @@
 <div class="container text-center">
   <div class="container">
-<h1>Welcome!</h1>
-<h5>
-  <%= icon('fas', 'heart') %>
-  <%= current_user.email %></h5>
-</div>
-<h3>My tales</h3>
-<% if policy(Cocktail).create? %>
-  <%= render 'cocktails/add' %>
-<% end %>
+    <h1>Welcome!</h1>
+    <h5>
+      <%= icon('fas', 'heart') %>
+      <%= current_user.email %></h5>
+  </div>
 
-<div class="container">
-    <ul class="cocktails-list"> <!-- list of cocktails -->
-      <div class="row">
-        <% current_user.cocktails.each do |cocktail| %>
-          <div class="col-xs-6 col-sm-3 col-md-2">
-            <%= link_to cocktail_path(cocktail) do %>
-            <li>
-              <h5><%= cocktail.name %></h5>
-              <%= cl_image_tag cocktail.photo, width: 100 %>
-            </li>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </ul> <!-- end of cocktails list -->
+  <h3>My tales</h3>
+  <% if policy(Cocktail).create? %>
+    <%= render 'cocktails/add' %>
+  <% end %>
+
+  <div class="container">
+      <ul class="cocktails-list"> <!-- list of cocktails -->
+        <div class="row">
+          <% current_user.cocktails.each do |cocktail| %>
+            <div class="col-xs-6 col-sm-3 col-md-2">
+              <%= link_to cocktail_path(cocktail) do %>
+              <li>
+                <h5><%= cocktail.name %></h5>
+                <%= cl_image_tag cocktail.photo, width: 100 %>
+              </li>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </ul> <!-- end of cocktails list -->
+  </div>
 </div>
-</div>
+
+<script>
+  const btnAdd = document.querySelector('.btn-add-cocktail');
+  const btnClose = document.querySelector('.modal-close');
+  const newTale = document.querySelector('.modal');
+
+  if (btnAdd) {
+    btnAdd.onclick = e => {
+      newTale.style.display = "block";
+    }
+  }
+
+  btnClose.onclick = e => {
+    newTale.style.display = "none";
+  }
+</script>
