@@ -1,0 +1,26 @@
+.modal {
+  display: none;
+  z-index: 1;
+  min-width: 300px;
+  padding-top: 10%;
+  background-color: rgba(#fbc000,0.2);
+  // background-color: #fbc000;
+}
+
+.modal-content {
+  border: 10px solid yellow;
+}
+
+
+#btn-add-cocktail:hover,
+.modal-close:hover {
+  cursor: pointer;
+}
+
+.modal-close {
+  float: right;
+  color: #aaa;
+  margin: 0 10px;
+  font-size: 20px;
+}
+

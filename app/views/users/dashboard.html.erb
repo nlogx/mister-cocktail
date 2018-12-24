@@ -7,7 +7,7 @@
 </div>
 <h3>My tales</h3>
 <% if policy(Cocktail).create? %>
-  <%= link_to '+', new_cocktail_path %>
+  <%= render 'cocktails/add' %>
 <% end %>
 
 <div class="container">

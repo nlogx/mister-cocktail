@@ -3,9 +3,7 @@
     <h1>Cocktails</h1>
 
     <% if user_signed_in? && current_user.admin? %>
-      <div>
-      <%= link_to '+', new_cocktail_path %>
-      </div>
+      <%#= render 'add' %>
     <% end %>
 
     <br>
@@ -33,3 +31,4 @@
   </div>
 
 </div>
+

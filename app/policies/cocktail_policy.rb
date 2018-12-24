@@ -5,6 +5,14 @@ class CocktailPolicy < ApplicationPolicy
     end
   end
 
+  def dashboard?
+    create?
+  end
+
+  def index?
+    create?
+  end
+
   def create?
     true
   end

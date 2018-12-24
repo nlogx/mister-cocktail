@@ -3,11 +3,8 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: %i[show destroy]
 
   def index
-    @cocktails = policy_scope(Cocktail).order(created_at: :desc)
-  end
-
-  def new
     @cocktail = authorize Cocktail.new
+    @cocktails = policy_scope(Cocktail).order(created_at: :desc)
   end
 
   def create
@@ -16,7 +13,7 @@ class CocktailsController < ApplicationController
     if @cocktail.save
       redirect_to @cocktail
     else
-      render :new
+      raise
     end
   end
 
