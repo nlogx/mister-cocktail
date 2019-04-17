@@ -10,7 +10,7 @@ gem 'rest-client', '~> 2.0', '>= 2.0.2'
 gem "devise", ">= 4.6.0"
 gem 'pundit'
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem "bootstrap-sass", ">= 3.4.1"
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'simple_form'
 gem 'pg_search'
